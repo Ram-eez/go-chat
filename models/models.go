@@ -1,4 +1,4 @@
-package mondels
+package models
 
 import "github.com/gorilla/websocket"
 
@@ -7,4 +7,5 @@ type Message struct {
 	Message  string `json:"message"`
 }
 
-var clients = make(map[*websocket.Conn]bool)
+var Clients = make(map[*websocket.Conn]bool)
+var Broadcast = make(chan Message)
