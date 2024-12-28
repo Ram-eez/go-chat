@@ -17,14 +17,15 @@ var upgrader = websocket.Upgrader{
 
 func HomePage(c *gin.Context) {
 
-	c.JSON(http.StatusOK, gin.H{"message": "welcome to the chat room"})
+	// c.JSON(http.StatusOK, gin.H{"message": "welcome to the chat room"})
+	c.String(200, "welcome to the chat room")
 
 }
 
 func HandleConnections(c *gin.Context) {
 	conn, err := upgrader.Upgrade(c.Writer, c.Request, nil)
 	if err != nil {
-		c.JSON(500, gin.H{"error": "Failed to upgrade to WebSocket"})
+		fmt.Println("Error upgrading to WebSocket:", err)
 		return
 	}
 
