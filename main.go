@@ -12,7 +12,7 @@ func main() {
 	r.GET("/", controllers.HomePage)
 	r.GET("/ws", controllers.HandleConnections)
 
-	go HandleMessages()
+	go controllers.HandleMessages()
 	fmt.Println("Server started on : 8080")
 	err := r.Run(":8080")
 	if err != nil {
